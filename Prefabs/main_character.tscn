@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ylltdbdq4x8"]
+
+[ext_resource type="Script" path="res://Scripts/character.gd" id="1_b61n7"]
+[ext_resource type="Texture2D" uid="uid://ci2d8jfrne35d" path="res://icon.svg" id="2_2vght"]
+[ext_resource type="PackedScene" uid="uid://diywk8hysrqqi" path="res://Prefabs/bullet.tscn" id="2_o3kcx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ds6lo"]
+size = Vector2(114, 116)
+
+[node name="MainCharacter" type="CharacterBody2D"]
+script = ExtResource("1_b61n7")
+Bullet = ExtResource("2_o3kcx")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_2vght")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+position = Vector2(40, -86)
+scale = Vector2(0.192957, 0.295681)
+texture = ExtResource("2_2vght")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_ds6lo")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(85, 0)
+
+[node name="WeaponCooldown" type="Timer" parent="."]

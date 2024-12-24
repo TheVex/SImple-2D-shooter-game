@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://k6d6svxheyc8"]
+
+[ext_resource type="PackedScene" uid="uid://ylltdbdq4x8" path="res://Prefabs/main_character.tscn" id="1_th0lk"]
+[ext_resource type="Script" path="res://Scripts/mob_spawner.gd" id="2_pnjfi"]
+[ext_resource type="PackedScene" uid="uid://csvana673prer" path="res://Prefabs/mob.tscn" id="3_hj1yg"]
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="4_2cbo6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w8q0s"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_qix6j"]
+font_size = 60
+
+[node name="Game" type="Node"]
+
+[node name="MainCharacter" parent="." instance=ExtResource("1_th0lk")]
+position = Vector2(579, 430)
+
+[node name="MobSpawner" type="Node2D" parent="."]
+script = ExtResource("2_pnjfi")
+Mob = ExtResource("3_hj1yg")
+
+[node name="LeftMarker" type="Marker2D" parent="MobSpawner"]
+position = Vector2(-144, 420)
+
+[node name="RightMarker" type="Marker2D" parent="MobSpawner"]
+position = Vector2(1342, 433)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="WaveCleared" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 440.0
+offset_top = 137.0
+offset_right = 735.0
+offset_bottom = 192.0
+text = "WAVE CLEARED"
+label_settings = SubResource("LabelSettings_w8q0s")
+
+[node name="WaveNumber" type="Label" parent="CanvasLayer"]
+offset_left = 479.0
+offset_top = 46.0
+offset_right = 687.0
+offset_bottom = 129.0
+text = "WAVE 1"
+label_settings = SubResource("LabelSettings_qix6j")
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("4_2cbo6")
