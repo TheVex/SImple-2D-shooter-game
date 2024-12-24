@@ -11,6 +11,8 @@ var MIN_COOLDOWN = 0.5;
 var MAX_COOLDOWN = 3.0;
 
 var wave_ended = true;
+var player_dead = false;
+
 var mobs_count = 0;
 
 
@@ -56,9 +58,12 @@ func _process(_delta: float) -> void:
 		owner.add_child(mob);
 		mob.transform = $RightMarker.global_transform;
 		mob.transform.x = -mob.transform.x;
-		'''
-	if (Input.is_action_just_pressed("ui_accept") && wave_ended):
-		wave_ended = false;
-		
-		upgrade_wave();
-		create_wave();
+	'''
+	if (Input.is_action_just_pressed("action")):
+		if (player_dead):
+			get_tree().reload_current_scene();
+		if (wave_ended):
+			wave_ended = false;
+			
+			upgrade_wave();
+			create_wave();

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://k6d6svxheyc8"]
+[gd_scene load_steps=9 format=3 uid="uid://k6d6svxheyc8"]
 
 [ext_resource type="PackedScene" uid="uid://ylltdbdq4x8" path="res://Prefabs/main_character.tscn" id="1_th0lk"]
 [ext_resource type="Script" path="res://Scripts/mob_spawner.gd" id="2_pnjfi"]
@@ -10,6 +10,12 @@ font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_qix6j"]
 font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_v0qtv"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_b7wyf"]
+font_size = 40
 
 [node name="Game" type="Node"]
 
@@ -44,6 +50,23 @@ offset_right = 687.0
 offset_bottom = 129.0
 text = "WAVE 1"
 label_settings = SubResource("LabelSettings_qix6j")
+
+[node name="YouDied" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 389.0
+offset_top = 260.0
+offset_right = 788.0
+offset_bottom = 370.0
+text = "YOU DIED!"
+label_settings = SubResource("LabelSettings_v0qtv")
+
+[node name="EnterToStart" type="Label" parent="CanvasLayer"]
+offset_left = 378.0
+offset_top = 533.0
+offset_right = 823.0
+offset_bottom = 588.0
+text = "PRESS ENTER TO START"
+label_settings = SubResource("LabelSettings_b7wyf")
 
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource("4_2cbo6")
