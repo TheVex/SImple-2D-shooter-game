@@ -20,6 +20,6 @@ func _physics_process(delta: float) -> void:
 # When collides with object
 func _on_body_entered(body: Node2D) -> void:
 	# If object is mob, deal damage to him and delete bullet
-	if body is Mob:
+	if body is Mob and !body.on_death:
 		body.change_health(damage, knockback);
 		queue_free();

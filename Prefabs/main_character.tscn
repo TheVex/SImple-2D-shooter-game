@@ -82,7 +82,7 @@ script = ExtResource("1_b61n7")
 Bullet = ExtResource("2_o3kcx")
 
 [node name="Muzzle" type="Marker2D" parent="."]
-position = Vector2(45, -27)
+position = Vector2(54, -24)
 
 [node name="WeaponCooldown" type="Timer" parent="."]
 
@@ -93,9 +93,11 @@ shape = SubResource("RectangleShape2D_ds6lo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(-3, -5)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_cepv1")
 animation = &"idle"
+offset = Vector2(1, 1.66667)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

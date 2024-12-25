@@ -21,9 +21,9 @@ var mouse_position;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
 	SCREEN_WIDTH = get_viewport().get_visible_rect().size.x;
-	
-	global_position.x = SCREEN_WIDTH / 2 + x_offset;
+	#global_position.x = SCREEN_WIDTH / 2 + x_offset;
 	
 	initial_position = animated_sprite_2d.position;
 	shoot_position = animated_sprite_2d.position + Vector2(25, 0);
