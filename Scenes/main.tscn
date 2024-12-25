@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://k6d6svxheyc8"]
+[gd_scene load_steps=14 format=3 uid="uid://k6d6svxheyc8"]
 
 [ext_resource type="PackedScene" uid="uid://ylltdbdq4x8" path="res://Prefabs/main_character.tscn" id="1_th0lk"]
 [ext_resource type="Script" path="res://Scripts/mob_spawner.gd" id="2_pnjfi"]
 [ext_resource type="PackedScene" uid="uid://csvana673prer" path="res://Prefabs/mob.tscn" id="3_hj1yg"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="4_2cbo6"]
+[ext_resource type="Texture2D" uid="uid://cy3iq11rhrgro" path="res://Assets/Счетчики и кнокпки/счетчик с деньгами.png" id="4_ciwsu"]
 [ext_resource type="Texture2D" uid="uid://c16b8vymyo517" path="res://Assets/фон/Задник.png" id="5_mhtl8"]
 [ext_resource type="Texture2D" uid="uid://w0s7dl82ngwk" path="res://Assets/фон/дом 1.png" id="6_hhsyl"]
 [ext_resource type="Texture2D" uid="uid://bl2d77l2g12px" path="res://Assets/фон/дом 2.png" id="7_0g7mb"]
@@ -99,9 +100,27 @@ text = "PRESS ENTER TO START"
 label_settings = SubResource("LabelSettings_b7wyf")
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-offset_right = 40.0
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
 offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 36.0
+offset_right = 36.0
+grow_horizontal = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(-286, 47)
+scale = Vector2(6, 6)
+texture = ExtResource("4_ciwsu")
 
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource("4_2cbo6")
