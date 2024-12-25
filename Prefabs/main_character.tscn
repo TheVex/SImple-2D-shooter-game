@@ -1,32 +1,101 @@
-[gd_scene load_steps=5 format=3 uid="uid://ylltdbdq4x8"]
+[gd_scene load_steps=15 format=3 uid="uid://ylltdbdq4x8"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_b61n7"]
-[ext_resource type="Texture2D" uid="uid://ci2d8jfrne35d" path="res://icon.svg" id="2_2vght"]
 [ext_resource type="PackedScene" uid="uid://diywk8hysrqqi" path="res://Prefabs/bullet.tscn" id="2_o3kcx"]
+[ext_resource type="Texture2D" uid="uid://dugq3su0e0gcm" path="res://Assets/персонажи/персонаж/персонаж бездействует idle-Sheet.png" id="3_v04vy"]
+[ext_resource type="Texture2D" uid="uid://lys4385m1nxv" path="res://Assets/персонажи/персонаж/персонаж стреляет-Sheet.png" id="4_s0s3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ds6lo"]
-size = Vector2(114, 116)
+size = Vector2(50, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0spi"]
+atlas = ExtResource("3_v04vy")
+region = Rect2(0, 0, 34, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifxct"]
+atlas = ExtResource("3_v04vy")
+region = Rect2(34, 0, 34, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krhmr"]
+atlas = ExtResource("3_v04vy")
+region = Rect2(68, 0, 34, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtr34"]
+atlas = ExtResource("3_v04vy")
+region = Rect2(102, 0, 34, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljngb"]
+atlas = ExtResource("4_s0s3w")
+region = Rect2(0, 0, 50, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbk5q"]
+atlas = ExtResource("4_s0s3w")
+region = Rect2(50, 0, 50, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbtth"]
+atlas = ExtResource("4_s0s3w")
+region = Rect2(100, 0, 50, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxf73"]
+atlas = ExtResource("4_s0s3w")
+region = Rect2(150, 0, 50, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cepv1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0spi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifxct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krhmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtr34")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljngb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbk5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbtth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxf73")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 12.0
+}]
 
 [node name="MainCharacter" type="Area2D"]
 script = ExtResource("1_b61n7")
 Bullet = ExtResource("2_o3kcx")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_2vght")
-
-[node name="Sprite2" type="Sprite2D" parent="."]
-position = Vector2(40, -86)
-scale = Vector2(0.192957, 0.295681)
-texture = ExtResource("2_2vght")
-
 [node name="Muzzle" type="Marker2D" parent="."]
-position = Vector2(85, 0)
+position = Vector2(45, -27)
 
 [node name="WeaponCooldown" type="Timer" parent="."]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 z_index = 1
-position = Vector2(0, -1)
+position = Vector2(-7, 0)
 shape = SubResource("RectangleShape2D_ds6lo")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_cepv1")
+animation = &"idle"
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
