@@ -141,4 +141,6 @@ position = Vector2(-1, 1.5)
 scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_niegb")
 
+[node name="TweenContainer" type="Node2D" parent="."]
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]

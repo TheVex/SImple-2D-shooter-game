@@ -2,7 +2,7 @@ extends Area2D
 
 var speed = 1000;
 var damage = 10;
-var knockback = 30;
+var knockback = 100;
 var direction = Vector2();
 
 # Applied when object is initialized

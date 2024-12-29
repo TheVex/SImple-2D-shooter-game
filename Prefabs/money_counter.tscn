@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm58jf7vsuraj"]
+
+[ext_resource type="Script" path="res://Scripts/counter.gd" id="1_p015m"]
+[ext_resource type="Texture2D" uid="uid://cy3iq11rhrgro" path="res://Assets/Счетчики и кнокпки/счетчик с деньгами.png" id="1_uqn1s"]
+[ext_resource type="Texture2D" uid="uid://cn7w1ff8tlfm6" path="res://Assets/Счетчики и кнокпки/цифры для счетчиков/1.png" id="3_15qii"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_p015m")
+counter_length = 5
+
+[node name="Table" type="Sprite2D" parent="."]
+texture = ExtResource("1_uqn1s")
+
+[node name="0" type="Sprite2D" parent="."]
+position = Vector2(-15, 0)
+texture = ExtResource("3_15qii")
+
+[node name="1" type="Sprite2D" parent="."]
+position = Vector2(-9, 0)
+texture = ExtResource("3_15qii")
+
+[node name="2" type="Sprite2D" parent="."]
+position = Vector2(-3, 0)
+texture = ExtResource("3_15qii")
+
+[node name="3" type="Sprite2D" parent="."]
+position = Vector2(3, 0)
+texture = ExtResource("3_15qii")
+
+[node name="4" type="Sprite2D" parent="."]
+position = Vector2(9, 0)
+texture = ExtResource("3_15qii")

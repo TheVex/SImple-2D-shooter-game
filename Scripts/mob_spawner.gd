@@ -6,7 +6,8 @@ class_name MobSpawner extends Node2D
 
 signal wave_started;
 signal wave_cleared;
-
+signal mob_created;
+signal mob_destroyed(money: int);
 
 var mobs_amount = 5;
 var MOB_SIZE = 5;
@@ -47,6 +48,8 @@ func create_wave() -> void:
 		
 		mob.destroyed.connect(on_mob_destroyed)
 		mobs_counter += 1;
+		emit_signal("mob_created");
+		
 		var y_range = randi_range(-Y_RANGE, Y_RANGE);
 		if randi_range(0, 1) == 0:
 			mob.transform = $LeftMarker.global_transform;
@@ -58,13 +61,15 @@ func create_wave() -> void:
 	wave_ended = true;
 	
 
-func on_mob_destroyed() -> void:
+func on_mob_destroyed(money: int) -> void:
 	mobs_counter -= 1;
+	emit_signal("mob_destroyed", money);
 	if (mobs_counter == 0 and wave_ended):
 		emit_signal("wave_cleared");
 	print(mobs_counter)		
 	
 	
+		
 func _process(_delta: float) -> void:
 	# If pressed Enter we create new wave or restart the game depending on conditions
 	if (Input.is_action_just_pressed("action")):
