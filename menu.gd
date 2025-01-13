@@ -7,11 +7,11 @@ func _ready():
 	start.pressed.connect(_on_start_pressed);
 	exit.pressed.connect(_on_exit_pressed);
 	
-	
+# For button "START"
 func _on_start_pressed():
 	get_tree().change_scene_to_file("res://Scenes/main.tscn")
 	
 	
-# Обработчик для кнопки "Exit"
+# For button "EXIT"
 func _on_exit_pressed():
 	get_tree().quit()

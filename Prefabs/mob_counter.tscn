@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5f0ym3ippdue"]
+
+[ext_resource type="Script" path="res://Scripts/counter.gd" id="1_v2cir"]
+[ext_resource type="Texture2D" uid="uid://spne6ov54d7n" path="res://Assets/Счетчики и кнокпки/счетчик для зомби.png" id="1_x817h"]
+[ext_resource type="Texture2D" uid="uid://cn7w1ff8tlfm6" path="res://Assets/Счетчики и кнокпки/цифры для счетчиков/1.png" id="2_kh0aw"]
+
+[node name="MobCounter" type="Node2D"]
+script = ExtResource("1_v2cir")
+counter_length = 3
+
+[node name="Window" type="Sprite2D" parent="."]
+texture = ExtResource("1_x817h")
+
+[node name="0" type="Sprite2D" parent="."]
+position = Vector2(-9, 0)
+texture = ExtResource("2_kh0aw")
+
+[node name="1" type="Sprite2D" parent="."]
+position = Vector2(-3, 0)
+texture = ExtResource("2_kh0aw")
+
+[node name="2" type="Sprite2D" parent="."]
+position = Vector2(3, 0)
+texture = ExtResource("2_kh0aw")
