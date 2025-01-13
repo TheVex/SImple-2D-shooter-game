@@ -31,7 +31,7 @@ func change_health(amount: float, knockback: float) -> void:
 		health -= amount;
 		if health <= 0:
 			die();
-		position -= transform.x * knockback;
+		position -= direction * knockback;
 		
 func die():
 	on_death = true;

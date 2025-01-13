@@ -16,8 +16,7 @@ var MOB_SIZE = 5;
 var MIN_COOLDOWN = 2;
 var MAX_COOLDOWN = 5.0;
 
-# Deviation from spawner within enemy will be spawn
-var Y_RANGE = 100;
+var MARKERS_AMOUNT = 10;
 
 var wave_ended = true;
 var player_dead = false;
@@ -38,26 +37,30 @@ func upgrade_wave():
 func create_wave() -> void:
 	emit_signal("wave_started");
 	for i in range(mobs_amount):
+		# Wait from previous spawn
 		await get_tree().create_timer(randi_range(MIN_COOLDOWN, MAX_COOLDOWN)).timeout;
 		print("Спавню!")
 		if player_dead:
 			return;
+			
 		var mob = Mob.instantiate();
-		
 		owner.add_child(mob);
 		
 		mob.destroyed.connect(on_mob_destroyed)
 		mobs_counter += 1;
 		emit_signal("mob_created");
 		
-		var y_range = randi_range(-Y_RANGE, Y_RANGE);
-		if randi_range(0, 1) == 0:
-			mob.transform = $LeftMarker.global_transform;
-		else:
-			mob.transform = $RightMarker.global_transform;
+		# Specify at which spawner spawn monster
+		var spawner_number = randi_range(1, MARKERS_AMOUNT);
+		var spawner = get_node("Marker{n}".format({"n": spawner_number}))
+		mob.transform = spawner.global_transform;
+		mob.z_index = spawner.z_index;
+		
+		if spawner_number > MARKERS_AMOUNT / 2:
 			mob.transform.x = -mob.transform.x;
-		mob.global_position += Vector2(0, y_range);
+
 		mob.direction = (main_character.global_position - mob.global_position).normalized();	
+		
 	wave_ended = true;
 	
 

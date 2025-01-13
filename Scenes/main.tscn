@@ -26,6 +26,7 @@ font_size = 40
 [node name="Game" type="Node"]
 
 [node name="MainCharacter" parent="." instance=ExtResource("1_th0lk")]
+z_index = 3
 position = Vector2(748, 670)
 scale = Vector2(2, 2)
 
@@ -33,11 +34,45 @@ scale = Vector2(2, 2)
 script = ExtResource("2_pnjfi")
 Mob = ExtResource("3_hj1yg")
 
-[node name="LeftMarker" type="Marker2D" parent="MobSpawner"]
-position = Vector2(64, 685)
+[node name="Marker1" type="Marker2D" parent="MobSpawner"]
+z_index = 1
+position = Vector2(-85, 685)
 
-[node name="RightMarker" type="Marker2D" parent="MobSpawner"]
-position = Vector2(1308, 698)
+[node name="Marker2" type="Marker2D" parent="MobSpawner"]
+z_index = 2
+position = Vector2(-85, 747)
+
+[node name="Marker3" type="Marker2D" parent="MobSpawner"]
+z_index = 3
+position = Vector2(-85, 804)
+
+[node name="Marker4" type="Marker2D" parent="MobSpawner"]
+z_index = 4
+position = Vector2(-85, 858)
+
+[node name="Marker5" type="Marker2D" parent="MobSpawner"]
+z_index = 5
+position = Vector2(-87, 917)
+
+[node name="Marker6" type="Marker2D" parent="MobSpawner"]
+z_index = 1
+position = Vector2(1465, 688)
+
+[node name="Marker7" type="Marker2D" parent="MobSpawner"]
+z_index = 2
+position = Vector2(1465, 750)
+
+[node name="Marker8" type="Marker2D" parent="MobSpawner"]
+z_index = 3
+position = Vector2(1465, 807)
+
+[node name="Marker9" type="Marker2D" parent="MobSpawner"]
+z_index = 4
+position = Vector2(1465, 861)
+
+[node name="Marker10" type="Marker2D" parent="MobSpawner"]
+z_index = 5
+position = Vector2(1463, 920)
 
 [node name="UI" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
