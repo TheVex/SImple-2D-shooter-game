@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://d12tuoeb7h62f"]
+
+[ext_resource type="PackedScene" uid="uid://c5f0ym3ippdue" path="res://Prefabs/mob_counter.tscn" id="1_rwgsk"]
+[ext_resource type="PackedScene" uid="uid://cm58jf7vsuraj" path="res://Prefabs/money_counter.tscn" id="2_irmnp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w8q0s"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_qix6j"]
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_v0qtv"]
+font_size = 120
+
+[sub_resource type="LabelSettings" id="LabelSettings_b7wyf"]
+font_size = 40
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WaveCleared" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 394.0
+offset_top = 114.0
+offset_right = 984.0
+offset_bottom = 224.0
+text = "WAVE CLEARED"
+label_settings = SubResource("LabelSettings_w8q0s")
+horizontal_alignment = 1
+
+[node name="WaveNumber" type="Label" parent="."]
+layout_mode = 2
+offset_left = 557.0
+offset_top = 273.0
+offset_right = 817.0
+offset_bottom = 372.0
+text = "WAVE 1"
+label_settings = SubResource("LabelSettings_qix6j")
+horizontal_alignment = 1
+
+[node name="YouDied" type="Label" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 387.5
+offset_top = 391.5
+offset_right = 986.5
+offset_bottom = 556.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU DIED!"
+label_settings = SubResource("LabelSettings_v0qtv")
+horizontal_alignment = 1
+
+[node name="EnterToStart" type="Label" parent="."]
+layout_mode = 2
+offset_left = 465.0
+offset_top = 736.0
+offset_right = 910.0
+offset_bottom = 791.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PRESS ENTER TO START"
+label_settings = SubResource("LabelSettings_b7wyf")
+horizontal_alignment = 1
+
+[node name="MoneyCounter" parent="." instance=ExtResource("2_irmnp")]
+position = Vector2(1169, -5.96046e-08)
+scale = Vector2(5, 5)
+
+[node name="MobCounter" parent="." instance=ExtResource("1_rwgsk")]
+scale = Vector2(5, 5)

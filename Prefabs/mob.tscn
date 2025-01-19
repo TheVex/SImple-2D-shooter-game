@@ -129,16 +129,16 @@ size = Vector2(18, 35)
 script = ExtResource("1_ask2y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-78, 45)
-scale = Vector2(-6, 6)
+position = Vector2(2, -23)
+scale = Vector2(-3, 3)
 sprite_frames = SubResource("SpriteFrames_u0osj")
 animation = &"idle"
 autoplay = "idle"
-offset = Vector2(-12.9723, -8.91938)
+offset = Vector2(-0.387094, 7.42582)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1.5)
-scale = Vector2(6, 6)
+position = Vector2(-3, 3)
+scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_niegb")
 
 [node name="TweenContainer" type="Node2D" parent="."]

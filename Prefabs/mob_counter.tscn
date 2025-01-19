@@ -2,23 +2,29 @@
 
 [ext_resource type="Script" path="res://Scripts/counter.gd" id="1_v2cir"]
 [ext_resource type="Texture2D" uid="uid://spne6ov54d7n" path="res://Assets/Счетчики и кнокпки/счетчик для зомби.png" id="1_x817h"]
-[ext_resource type="Texture2D" uid="uid://cn7w1ff8tlfm6" path="res://Assets/Счетчики и кнокпки/цифры для счетчиков/1.png" id="2_kh0aw"]
+[ext_resource type="Texture2D" uid="uid://cpwskgiuvvecs" path="res://Assets/Счетчики и кнокпки/цифры для счетчиков/0.png" id="3_0g5pi"]
 
 [node name="MobCounter" type="Node2D"]
 script = ExtResource("1_v2cir")
 counter_length = 3
 
 [node name="Window" type="Sprite2D" parent="."]
+position = Vector2(0.5, 0.5)
 texture = ExtResource("1_x817h")
+offset = Vector2(14, 7)
+metadata/_edit_use_anchors_ = true
 
 [node name="0" type="Sprite2D" parent="."]
-position = Vector2(-9, 0)
-texture = ExtResource("2_kh0aw")
+position = Vector2(5.5, 7.5)
+texture = ExtResource("3_0g5pi")
+metadata/_edit_use_anchors_ = true
 
 [node name="1" type="Sprite2D" parent="."]
-position = Vector2(-3, 0)
-texture = ExtResource("2_kh0aw")
+position = Vector2(11.5, 7.5)
+texture = ExtResource("3_0g5pi")
+metadata/_edit_use_anchors_ = true
 
 [node name="2" type="Sprite2D" parent="."]
-position = Vector2(3, 0)
-texture = ExtResource("2_kh0aw")
+position = Vector2(17.5, 7.5)
+texture = ExtResource("3_0g5pi")
+metadata/_edit_use_anchors_ = true

@@ -9,6 +9,5 @@ func render(number: int) -> void:
 		n = "0" + n;
 	print(n)
 	for i in range(counter_length):
-		if (n[i] == "0"): continue;
 		get_node(str(i)).texture = load("res://Assets/Счетчики и кнокпки/цифры для счетчиков/{digit}.png".format({"digit": n[i]}));
 		
