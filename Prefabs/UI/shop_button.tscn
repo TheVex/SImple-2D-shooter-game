@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://nsmox5m8n21h"]
+
+[ext_resource type="Script" path="res://shop_button.gd" id="1_2clte"]
+[ext_resource type="Texture2D" uid="uid://di2o1oaok5kfp" path="res://Assets/Счетчики и кнокпки/кнокпка магазина.png" id="2_kdrrm"]
+
+[node name="ShopButton" type="Node2D"]
+position = Vector2(-26, 8)
+script = ExtResource("1_2clte")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-26, -8)
+texture = ExtResource("2_kdrrm")
+offset = Vector2(26, 8)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ShopButton" type="Button" parent="Control"]
+modulate = Color(1, 1, 1, 0.0392157)
+layout_mode = 0
+offset_left = -26.0
+offset_top = -8.0
+offset_right = 13.0
+offset_bottom = 8.0
+
+[node name="ExitButton" type="Button" parent="Control"]
+modulate = Color(1, 1, 1, 0.0392157)
+layout_mode = 0
+offset_left = 15.0
+offset_top = -7.0
+offset_right = 23.0
+offset_bottom = 1.0
+scale = Vector2(1.38198, 1.88066)

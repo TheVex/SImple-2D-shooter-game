@@ -5,13 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://cpwskgiuvvecs" path="res://Assets/Счетчики и кнокпки/цифры для счетчиков/0.png" id="3_lnn4j"]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(-41, 0)
 script = ExtResource("1_p015m")
 counter_length = 5
 
 [node name="Table" type="Sprite2D" parent="."]
-position = Vector2(0.5, 0.5)
+position = Vector2(41, 0)
 texture = ExtResource("1_uqn1s")
-offset = Vector2(20, 7)
+offset = Vector2(-20.5, 7.5)
 metadata/_edit_use_anchors_ = true
 
 [node name="0" type="Sprite2D" parent="."]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3ixhf8rrpgxt"]
+
+[ext_resource type="Texture2D" uid="uid://deqo7loc6iyav" path="res://Assets/меню/фон для меню.png" id="1_fkftp"]
+[ext_resource type="Theme" uid="uid://bbim07ocpusbl" path="res://Themes/ui_theme.tres" id="2_ialmk"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(13.2308, 12.3247)
+texture = ExtResource("1_fkftp")
+centered = false
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 446.0
+offset_right = 508.0
+offset_bottom = 518.0
+theme = ExtResource("2_ialmk")
+theme_override_font_sizes/font_size = 36
+text = "TEMPORARY STUFF"

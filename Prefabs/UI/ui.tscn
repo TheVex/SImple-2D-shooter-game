@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d12tuoeb7h62f"]
+[gd_scene load_steps=8 format=3 uid="uid://d12tuoeb7h62f"]
 
-[ext_resource type="PackedScene" uid="uid://c5f0ym3ippdue" path="res://Prefabs/mob_counter.tscn" id="1_rwgsk"]
-[ext_resource type="PackedScene" uid="uid://cm58jf7vsuraj" path="res://Prefabs/money_counter.tscn" id="2_irmnp"]
+[ext_resource type="PackedScene" uid="uid://c5f0ym3ippdue" path="res://Prefabs/UI/mob_counter.tscn" id="1_rwgsk"]
+[ext_resource type="PackedScene" uid="uid://cm58jf7vsuraj" path="res://Prefabs/UI/money_counter.tscn" id="2_irmnp"]
+[ext_resource type="PackedScene" uid="uid://nsmox5m8n21h" path="res://Prefabs/UI/shop_button.tscn" id="3_kposi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w8q0s"]
 font_size = 80
@@ -69,9 +70,13 @@ text = "PRESS ENTER TO START"
 label_settings = SubResource("LabelSettings_b7wyf")
 horizontal_alignment = 1
 
-[node name="MoneyCounter" parent="." instance=ExtResource("2_irmnp")]
-position = Vector2(1169, -5.96046e-08)
+[node name="MobCounter" parent="." instance=ExtResource("1_rwgsk")]
 scale = Vector2(5, 5)
 
-[node name="MobCounter" parent="." instance=ExtResource("1_rwgsk")]
+[node name="MoneyCounter" parent="." instance=ExtResource("2_irmnp")]
+position = Vector2(1170, 77)
+scale = Vector2(5, 5)
+
+[node name="ShopButton" parent="." instance=ExtResource("3_kposi")]
+position = Vector2(1300, 39)
 scale = Vector2(5, 5)
