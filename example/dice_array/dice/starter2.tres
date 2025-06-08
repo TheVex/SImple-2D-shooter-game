@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AdvancedDie" load_steps=2 format=3 uid="uid://bmu7ien6h6u72"]
+
+[ext_resource type="Script" uid="uid://l7ehclri0lur" path="res://addons/advanced_random/advanced_die.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+description = "A die with a bunch of Cs, Ms and Ys.
+Each character is a symbol. You can sum up how many symbols of each type were rolled."
+faces = ["C", "CC", "CCM", "MM", "CCM", "Y"]
+use_numbers_as_symbols = false
+symbol_char_if_number = "C"

@@ -1,13 +1,9 @@
-extends Area2D
+class_name Bullet extends Area2D
 
-var speed = 1000;
-var damage = 10;
-var knockback = 100;
+var speed: int;
+var damage: int;
+var knockback: int;
 var direction = Vector2();
-
-# Applied when object is initialized
-func _ready() -> void:
-	pass;
 
 # Every physics frame it moves from character direction
 func _physics_process(delta: float) -> void:

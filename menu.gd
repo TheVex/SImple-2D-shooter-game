@@ -1,7 +1,7 @@
 extends Control
-
-@onready var start: Button = $Container/Start;
-@onready var exit: Button = $Container/Exit;
+ 
+@export var start: Button;
+@export var exit: Button;
 
 func _ready():
 	start.pressed.connect(_on_start_pressed);

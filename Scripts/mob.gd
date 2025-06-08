@@ -1,46 +1,61 @@
 class_name Mob extends CharacterBody2D
 
 signal destroyed(money: int);
+signal mob_damaged(mob: Mob);
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var tween_container: Node2D = $TweenContainer
+@export var animated_sprite_2d: AnimatedSprite2D;
+@export var collision_shape_2d: CollisionShape2D;
 
-var speed = 100;
-var push_multiplier = 15;
-var health = 20.0;
-var money = 47;
+@export var speed: int;
+@export var push_multiplier: int;
+@export var health: float;
+@export var reward: int;
+
 var direction = Vector2();
 var on_death = false;
+var mouse_on = true;
 
+func _ready() -> void:
+	input_pickable = true;
 	
+
 func _physics_process(delta: float) -> void:
-	'''
-	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD);
-	tween.tween_property(self, "position", position + direction * speed * push_multiplier, 0.1);
-	tween.play();
-	'''
 	position += direction * speed * delta;
+
 
 func get_health() -> float:
 	return health;
 
+
+func apply_knockback(knockback: float) -> void:
+	position -= direction * knockback;
+	
+
 # Decrease health when get damage
-func change_health(amount: float, knockback: float) -> void:
+func change_health(amount: float, heal: bool) -> void:
 	if !on_death:
-		health -= amount;
+		if heal:
+			health += amount;
+		else:
+			health -= amount;
 		if health <= 0:
 			die();
-		position -= direction * knockback;
-		
+
+
 func die():
 	on_death = true;
-	emit_signal("destroyed", money);
+	emit_signal("destroyed", reward);
 	direction = Vector2();
 	collision_shape_2d.set_deferred("disabled", true);
 	animated_sprite_2d.play("death");
+
 
 func _on_animation_finished() -> void:
 	if animated_sprite_2d.animation == "death":
 		await get_tree().create_timer(2).timeout;
 		queue_free();
+
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if (Input.is_action_just_pressed("shoot")):
+		emit_signal("mob_damaged", self);

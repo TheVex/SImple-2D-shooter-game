@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DynamicWheelItem" load_steps=2 format=3 uid="uid://b6xkvlnewmk72"]
+
+[ext_resource type="Script" uid="uid://cylf8d6lenf8l" path="res://addons/advanced_random/dynamic_wheel_item.gd" id="1"]
+
+[resource]
+resource_name = "Upgrade: Health"
+script = ExtResource("1")
+max_duplicates = 10
+base_weight = 10.0
+tags = Array[String]([])
+requires_one_of_tags = Array[String]([])
+tag_all_copies = true
+increment_per_tag = ""
+multiplier_per_tag = "strength 1.5; melee 1.5; magic 0.8"
+multiplier_if_tag_present = "@self 4.0"
+multiplier_if_tag_not_present = ""
+max_tags_present = ""
+min_tags_present = ""
+list_key_value_delimiter = " "
+list_entry_delimiter = ";"

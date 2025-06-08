@@ -1,6 +1,6 @@
 extends Camera2D
 
-@onready var target: Area2D = $"../MainCharacter"
+@export var target: MainCharacter;
 
 # Screen center
 var CENTER;

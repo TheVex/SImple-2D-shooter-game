@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://ifua7g72r63e"]
+
+[ext_resource type="Script" uid="uid://dtlu0vlbxtkkg" path="res://Scripts/weapon.gd" id="1_rr0u8"]
+
+[node name="Gun" type="Node"]
+script = ExtResource("1_rr0u8")
+damage = 5.0
+bullet_knockback = 20.0
+shoot_cooldown = 2.0
+weapon_name = "Pistol"
+reload_cooldown = 5
+max_magazine_capacity = 8
+
+[node name="ReloadTimer" type="Timer" parent="."]
+
+[node name="ShootTimer" type="Timer" parent="."]

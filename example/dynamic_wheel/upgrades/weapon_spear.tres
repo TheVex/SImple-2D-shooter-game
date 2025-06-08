@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DynamicWheelItem" load_steps=2 format=3 uid="uid://dysrwjiwbn3ew"]
+
+[ext_resource type="Script" uid="uid://cylf8d6lenf8l" path="res://addons/advanced_random/dynamic_wheel_item.gd" id="1"]
+
+[resource]
+resource_name = "Weapon: Spear"
+script = ExtResource("1")
+max_duplicates = 8
+base_weight = 10.0
+tags = Array[String]([])
+requires_one_of_tags = Array[String]([])
+tag_all_copies = false
+increment_per_tag = ""
+multiplier_per_tag = "strength 2.0"
+multiplier_if_tag_present = "@self 4.0"
+multiplier_if_tag_not_present = ""
+max_tags_present = "weapon 4"
+min_tags_present = ""
+list_key_value_delimiter = " "
+list_entry_delimiter = ";"

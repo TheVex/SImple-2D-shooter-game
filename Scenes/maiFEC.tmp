@@ -1,0 +1,453 @@
+[gd_scene load_steps=23 format=3 uid="uid://k6d6svxheyc8"]
+
+[ext_resource type="PackedScene" uid="uid://ylltdbdq4x8" path="res://Prefabs/main_character.tscn" id="1_th0lk"]
+[ext_resource type="Script" path="res://Scripts/mob_spawner.gd" id="2_pnjfi"]
+[ext_resource type="PackedScene" uid="uid://d3ixhf8rrpgxt" path="res://Prefabs/UI/shop.tscn" id="2_ptxe5"]
+[ext_resource type="PackedScene" uid="uid://c5f0ym3ippdue" path="res://Prefabs/UI/mob_counter.tscn" id="2_smj3l"]
+[ext_resource type="PackedScene" uid="uid://cm58jf7vsuraj" path="res://Prefabs/UI/money_counter.tscn" id="3_a06bj"]
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="4_2cbo6"]
+[ext_resource type="PackedScene" uid="uid://nsmox5m8n21h" path="res://Prefabs/UI/shop_button.tscn" id="4_4snbt"]
+[ext_resource type="Texture2D" uid="uid://c16b8vymyo517" path="res://Assets/фон/Задник.png" id="5_mhtl8"]
+[ext_resource type="Texture2D" uid="uid://w0s7dl82ngwk" path="res://Assets/фон/дом 1.png" id="6_hhsyl"]
+[ext_resource type="Texture2D" uid="uid://bl2d77l2g12px" path="res://Assets/фон/дом 2.png" id="7_0g7mb"]
+[ext_resource type="Texture2D" uid="uid://davf0xbiqb4lv" path="res://Assets/фон/дорога с тенью на которой стоит персонаж.png" id="8_exdbb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ughxt"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ybmg"]
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_t2aea"]
+font_size = 120
+
+[sub_resource type="LabelSettings" id="LabelSettings_m61lq"]
+font_size = 40
+
+[sub_resource type="Animation" id="Animation_1bs8j"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:zoom:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:zoom:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:offset:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../ShopLayer:offset:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-950, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../UI Layer/Right-up Node/ShopButton:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1300, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../UI Layer/Right-up Node:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_wgxf0"]
+resource_name = "activate_shop"
+length = 0.9
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ShopLayer:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-950, -0.25, 0, 0.25, 0, 0, -0.566667, 6.14683, 0.25, 0),
+"times": PackedFloat32Array(0, 0.9)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../UI Layer/Right-up Node/ShopButton:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1300, -0.25, 0, 0.25, 0, 1245, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_c3ua5"]
+resource_name = "begin_animation"
+length = 4.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-100, -0.25, 0, 0.25, 0, 124.297, -0.25, 0, 0.25, 0, 200, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.03333, 4)
+}
+
+[sub_resource type="Animation" id="Animation_gjmga"]
+resource_name = "shop_exit"
+length = 0.9
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ShopLayer:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.566667, 6.14683, 0.25, 0, -950, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.9)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../UI Layer/Right-up Node/ShopButton:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1245, -0.25, 0, 0.25, 0, 1300, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_l5mul"]
+resource_name = "zoom_in"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 200, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:zoom:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.633333, -1.02688),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:zoom:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.666667, -1.04122),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../UI Layer/Right-up Node:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-80, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.5)
+}
+
+[sub_resource type="Animation" id="Animation_wf3iq"]
+resource_name = "zoom_out"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(200, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.56667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:zoom:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.633333, -1.02688, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:zoom:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.666667, -1.04122, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../UI Layer/Right-up Node:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -80, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f6qlg"]
+_data = {
+"RESET": SubResource("Animation_1bs8j"),
+"activate_shop": SubResource("Animation_wgxf0"),
+"scene_start": SubResource("Animation_c3ua5"),
+"shop_exit": SubResource("Animation_gjmga"),
+"wave_ended": SubResource("Animation_l5mul"),
+"wave_started": SubResource("Animation_wf3iq")
+}
+
+[node name="Game" type="Node"]
+
+[node name="LabelLayer" type="CanvasLayer" parent="."]
+
+[node name="WaveCleared" type="Label" parent="LabelLayer"]
+visible = false
+offset_left = 394.0
+offset_top = 114.0
+offset_right = 984.0
+offset_bottom = 224.0
+text = "WAVE CLEARED"
+label_settings = SubResource("LabelSettings_ughxt")
+horizontal_alignment = 1
+
+[node name="WaveNumber" type="Label" parent="LabelLayer"]
+offset_left = 557.0
+offset_top = 273.0
+offset_right = 817.0
+offset_bottom = 372.0
+text = "WAVE 1"
+label_settings = SubResource("LabelSettings_1ybmg")
+horizontal_alignment = 1
+
+[node name="YouDied" type="Label" parent="LabelLayer"]
+visible = false
+offset_left = 387.5
+offset_top = 391.5
+offset_right = 986.5
+offset_bottom = 556.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU DIED!"
+label_settings = SubResource("LabelSettings_t2aea")
+horizontal_alignment = 1
+
+[node name="EnterToStart" type="Label" parent="LabelLayer"]
+offset_left = 465.0
+offset_top = 736.0
+offset_right = 910.0
+offset_bottom = 791.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PRESS ENTER TO START"
+label_settings = SubResource("LabelSettings_m61lq")
+horizontal_alignment = 1
+
+[node name="ShopLayer" type="CanvasLayer" parent="."]
+offset = Vector2(0, -950)
+transform = Transform2D(1, 0, 0, 1, 0, -950)
+
+[node name="Shop" parent="ShopLayer" instance=ExtResource("2_ptxe5")]
+
+[node name="UI Layer" type="CanvasLayer" parent="."]
+
+[node name="MobCounter" parent="UI Layer" instance=ExtResource("2_smj3l")]
+scale = Vector2(5, 5)
+
+[node name="Right-up Node" type="Node2D" parent="UI Layer"]
+
+[node name="MoneyCounter" parent="UI Layer/Right-up Node" instance=ExtResource("3_a06bj")]
+position = Vector2(1170, 77)
+scale = Vector2(5, 5)
+
+[node name="ShopButton" parent="UI Layer/Right-up Node" instance=ExtResource("4_4snbt")]
+position = Vector2(1300, 39)
+scale = Vector2(5, 5)
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(685, 473)
+zoom = Vector2(2, 2)
+
+[node name="MainCharacter" parent="." instance=ExtResource("1_th0lk")]
+z_index = 3
+position = Vector2(703, 734)
+
+[node name="MobSpawner" type="Node2D" parent="."]
+script = ExtResource("2_pnjfi")
+
+[node name="Marker1" type="Marker2D" parent="MobSpawner"]
+z_index = 1
+position = Vector2(-85, 685)
+
+[node name="Marker2" type="Marker2D" parent="MobSpawner"]
+z_index = 2
+position = Vector2(-85, 747)
+
+[node name="Marker3" type="Marker2D" parent="MobSpawner"]
+z_index = 3
+position = Vector2(-85, 804)
+
+[node name="Marker4" type="Marker2D" parent="MobSpawner"]
+z_index = 4
+position = Vector2(-85, 858)
+
+[node name="Marker5" type="Marker2D" parent="MobSpawner"]
+z_index = 5
+position = Vector2(-87, 917)
+
+[node name="Marker6" type="Marker2D" parent="MobSpawner"]
+z_index = 1
+position = Vector2(1465, 688)
+
+[node name="Marker7" type="Marker2D" parent="MobSpawner"]
+z_index = 2
+position = Vector2(1465, 750)
+
+[node name="Marker8" type="Marker2D" parent="MobSpawner"]
+z_index = 3
+position = Vector2(1465, 807)
+
+[node name="Marker9" type="Marker2D" parent="MobSpawner"]
+z_index = 4
+position = Vector2(1465, 861)
+
+[node name="Marker10" type="Marker2D" parent="MobSpawner"]
+z_index = 5
+position = Vector2(1463, 920)
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -5
+scale = Vector2(6, 6)
+
+[node name="Back" type="Sprite2D" parent="Background"]
+texture_filter = 1
+texture = ExtResource("5_mhtl8")
+centered = false
+
+[node name="House1" type="Sprite2D" parent="Background"]
+texture_filter = 1
+position = Vector2(48, 63.5667)
+texture = ExtResource("6_hhsyl")
+
+[node name="House2" type="Sprite2D" parent="Background"]
+texture_filter = 1
+position = Vector2(191.4, 65)
+texture = ExtResource("7_0g7mb")
+
+[node name="Road" type="Sprite2D" parent="Background"]
+position = Vector2(114.6, 133.6)
+texture = ExtResource("8_exdbb")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Camera")
+libraries = {
+"": SubResource("AnimationLibrary_f6qlg")
+}
+autoplay = "scene_start"
+
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("mob_spawner", "main_character", "animation", "wave_cleared", "wave_number", "you_died", "enter_to_start", "mob_counter", "money_counter", "shop_button")]
+position = Vector2(0, -17)
+script = ExtResource("4_2cbo6")
+mob_spawner = NodePath("../MobSpawner")
+main_character = NodePath("../MainCharacter")
+animation = NodePath("../Animation")
+wave_cleared = NodePath("../LabelLayer/WaveCleared")
+wave_number = NodePath("../LabelLayer/WaveNumber")
+you_died = NodePath("../LabelLayer/YouDied")
+enter_to_start = NodePath("../LabelLayer/EnterToStart")
+mob_counter = NodePath("../UI Layer/MobCounter")
+money_counter = NodePath("../UI Layer/Right-up Node/MoneyCounter")
+shop_button = NodePath("../UI Layer/Right-up Node/ShopButton")
+
+[connection signal="animation_finished" from="Animation" to="GameManager" method="_on_animation_finished"]

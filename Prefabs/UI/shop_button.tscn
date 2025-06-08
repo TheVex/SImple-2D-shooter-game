@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://nsmox5m8n21h"]
 
-[ext_resource type="Script" path="res://shop_button.gd" id="1_2clte"]
+[ext_resource type="Script" uid="uid://ch605oa7u521q" path="res://Scripts/shop_button.gd" id="1_2clte"]
 [ext_resource type="Texture2D" uid="uid://di2o1oaok5kfp" path="res://Assets/Счетчики и кнокпки/кнокпка магазина.png" id="2_kdrrm"]
 
 [node name="ShopButton" type="Node2D"]

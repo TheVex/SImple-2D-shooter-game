@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://ylltdbdq4x8"]
 
-[ext_resource type="Script" path="res://Scripts/character.gd" id="1_b61n7"]
-[ext_resource type="PackedScene" uid="uid://diywk8hysrqqi" path="res://Prefabs/bullet.tscn" id="2_o3kcx"]
+[ext_resource type="Script" uid="uid://dm67dr1f0yu1m" path="res://Scripts/character.gd" id="1_b61n7"]
+[ext_resource type="PackedScene" uid="uid://ifua7g72r63e" path="res://Prefabs/Weapons/gun.tscn" id="2_ccn0v"]
 [ext_resource type="Texture2D" uid="uid://dugq3su0e0gcm" path="res://Assets/персонажи/персонаж/персонаж бездействует idle-Sheet.png" id="3_v04vy"]
 [ext_resource type="Texture2D" uid="uid://lys4385m1nxv" path="res://Assets/персонажи/персонаж/персонаж стреляет-Sheet.png" id="4_s0s3w"]
 
@@ -77,14 +77,13 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="MainCharacter" type="Area2D"]
+[node name="MainCharacter" type="Area2D" node_paths=PackedStringArray("animated_sprite_2d")]
 script = ExtResource("1_b61n7")
-Bullet = ExtResource("2_o3kcx")
+weapon_scene = ExtResource("2_ccn0v")
+animated_sprite_2d = NodePath("AnimatedSprite2D")
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(54, -24)
-
-[node name="WeaponCooldown" type="Timer" parent="."]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 z_index = 1
@@ -98,6 +97,8 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_cepv1")
 animation = &"idle"
 offset = Vector2(1, 1.66667)
+
+[node name="WeaponCooldown" type="Timer" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
