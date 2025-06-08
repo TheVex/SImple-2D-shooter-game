@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://k6d6svxheyc8"]
+[gd_scene load_steps=24 format=3 uid="uid://k6d6svxheyc8"]
 
 [ext_resource type="PackedScene" uid="uid://ylltdbdq4x8" path="res://Prefabs/main_character.tscn" id="1_th0lk"]
 [ext_resource type="Script" uid="uid://bysup3nn3u3im" path="res://Scripts/mob_spawner.gd" id="2_pnjfi"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://c16b8vymyo517" path="res://Assets/фон/Задник.png" id="5_mhtl8"]
 [ext_resource type="Texture2D" uid="uid://w0s7dl82ngwk" path="res://Assets/фон/дом 1.png" id="6_hhsyl"]
 [ext_resource type="Texture2D" uid="uid://bl2d77l2g12px" path="res://Assets/фон/дом 2.png" id="7_0g7mb"]
-[ext_resource type="PackedScene" uid="uid://dbom2xcom5e7j" path="res://Prefabs/Mobs/bomb_runner.tscn" id="8_2vtte"]
 [ext_resource type="Texture2D" uid="uid://davf0xbiqb4lv" path="res://Assets/фон/дорога с тенью на которой стоит персонаж.png" id="8_exdbb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ughxt"]
@@ -367,8 +366,8 @@ position = Vector2(703, 734)
 
 [node name="MobSpawner" type="Node2D" parent="." node_paths=PackedStringArray("main_character")]
 script = ExtResource("2_pnjfi")
-Mobs = Array[PackedScene]([ExtResource("3_hj1yg"), ExtResource("8_2vtte")])
-SpawnWeights = Array[int]([5, 95])
+Mobs = Array[PackedScene]([ExtResource("3_hj1yg")])
+SpawnWeights = Array[int]([100])
 main_character = NodePath("../MainCharacter")
 
 [node name="Marker1" type="Marker2D" parent="MobSpawner"]

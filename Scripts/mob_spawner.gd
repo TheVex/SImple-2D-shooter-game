@@ -85,8 +85,6 @@ func on_mob_destroyed(money: int) -> void:
 		emit_signal("wave_cleared");
 	print(mobs_counter)		
 	
-	
-		
 func _process(_delta: float) -> void:
 	# If pressed Enter we create new wave or restart the game depending on conditions
 	if (Input.is_action_just_pressed("action") and allow_input):
@@ -96,3 +94,5 @@ func _process(_delta: float) -> void:
 			wave_ended = false;			
 			upgrade_wave();
 			create_wave();
+		else:
+			pass
