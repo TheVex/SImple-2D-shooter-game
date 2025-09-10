@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dm67dr1f0yu1m" path="res://Scripts/character.gd" id="1_b61n7"]
 [ext_resource type="PackedScene" uid="uid://ifua7g72r63e" path="res://Prefabs/Weapons/gun.tscn" id="2_ccn0v"]
-[ext_resource type="Texture2D" uid="uid://dugq3su0e0gcm" path="res://Assets/персонажи/персонаж/персонаж бездействует idle-Sheet.png" id="3_v04vy"]
-[ext_resource type="Texture2D" uid="uid://lys4385m1nxv" path="res://Assets/персонажи/персонаж/персонаж стреляет-Sheet.png" id="4_s0s3w"]
+[ext_resource type="Texture2D" uid="uid://dugq3su0e0gcm" path="res://Assets/characters/main/персонаж бездействует idle-Sheet.png" id="3_v04vy"]
+[ext_resource type="Texture2D" uid="uid://lys4385m1nxv" path="res://Assets/characters/main/персонаж стреляет-Sheet.png" id="4_s0s3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ds6lo"]
 size = Vector2(50, 114)

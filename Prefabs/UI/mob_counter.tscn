@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5f0ym3ippdue"]
 
 [ext_resource type="Script" uid="uid://du2ma5sphypta" path="res://Scripts/counter.gd" id="1_v2cir"]
-[ext_resource type="Texture2D" uid="uid://spne6ov54d7n" path="res://Assets/Счетчики и кнокпки/счетчик для зомби.png" id="1_x817h"]
-[ext_resource type="Texture2D" uid="uid://cpwskgiuvvecs" path="res://Assets/Счетчики и кнокпки/цифры для счетчиков/0.png" id="3_0g5pi"]
+[ext_resource type="Texture2D" uid="uid://spne6ov54d7n" path="res://Assets/menu/counters&buttons/zombie_counter.png" id="1_x817h"]
+[ext_resource type="Texture2D" uid="uid://cpwskgiuvvecs" path="res://Assets/menu/counters&buttons/numbers/0.png" id="3_0g5pi"]
 
 [node name="MobCounter" type="Node2D"]
 script = ExtResource("1_v2cir")

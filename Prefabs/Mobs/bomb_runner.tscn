@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://dbom2xcom5e7j"]
 
 [ext_resource type="Script" uid="uid://bjp8d3sifljyw" path="res://Scripts/mob.gd" id="1_w1q2m"]
-[ext_resource type="Texture2D" uid="uid://b0uqkboe8c1mk" path="res://Assets/враг/желтуха бегучка.png" id="3_odmbc"]
+[ext_resource type="Texture2D" uid="uid://b0uqkboe8c1mk" path="res://Assets/characters/enemy/bomber_run.png" id="3_odmbc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_06rip"]
 atlas = ExtResource("3_odmbc")

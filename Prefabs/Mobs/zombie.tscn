@@ -1,8 +1,8 @@
 [gd_scene load_steps=21 format=3 uid="uid://csvana673prer"]
 
 [ext_resource type="Script" uid="uid://bjp8d3sifljyw" path="res://Scripts/mob.gd" id="1_ask2y"]
-[ext_resource type="Texture2D" uid="uid://ddgilpnqgo3xj" path="res://Assets/враг/зомби ходит-Sheet.png" id="2_4g1fg"]
-[ext_resource type="Texture2D" uid="uid://ddpi8o043sn2w" path="res://Assets/враг/Зомби умер-Sheet.png" id="2_qihqq"]
+[ext_resource type="Texture2D" uid="uid://ddgilpnqgo3xj" path="res://Assets/characters/enemy/zombie_run.png" id="2_4g1fg"]
+[ext_resource type="Texture2D" uid="uid://ddpi8o043sn2w" path="res://Assets/characters/enemy/zombie_death.png" id="2_qihqq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ixlff"]
 atlas = ExtResource("2_qihqq")

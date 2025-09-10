@@ -5,7 +5,6 @@ extends Node2D
 @export var mob_spawner: MobSpawner;
 @export var main_character: MainCharacter;
 @export var waveAnimation: AnimationPlayer;
-@export var shopAnimation: AnimationPlayer;
 @export var wave_cleared: Label;
 @export var wave_number: Label;
 @export var you_died: Label;
@@ -39,25 +38,6 @@ func connect_signals() -> void:
 	mob_spawner.mob_hit.connect(on_mob_hit);
 	main_character.is_dead.connect(on_player_death);
 	
-	shop_button.shop_activated.connect(on_shop_activated);
-	shop_button.shop_exited.connect(on_shop_exited);
-	
-	
-func on_shop_activated() -> void:
-	if is_animation_finished:
-		mob_spawner.allow_input = false;
-		shopAnimation.play("activate_shop");
-		shop_button.shop_button.disabled = true;
-		is_animation_finished = false;
-	
-
-func on_shop_exited() -> void:
-	if is_animation_finished:
-		shopAnimation.play("shop_exit");
-		print("FINISHED")
-		shop_button.shop_button.disabled = false;
-		is_animation_finished = false;
-
 
 func on_mob_hit(mob: Mob):
 	if main_character:
@@ -100,11 +80,3 @@ func on_player_death() -> void:
 	enter_to_start.show();
 	main_character.can_shoot = false;
 	mob_spawner.player_dead = true;
-
-
-func _on_animation_finished(anim_name: StringName) -> void:
-	is_animation_finished = true;
-	if anim_name == "shop_exit":
-		print("МОЖНО!")
-		mob_spawner.allow_input = true;
-		

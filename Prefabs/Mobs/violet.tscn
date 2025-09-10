@@ -1,8 +1,8 @@
 [gd_scene load_steps=20 format=3 uid="uid://j5xkrckqn35h"]
 
 [ext_resource type="Script" uid="uid://bjp8d3sifljyw" path="res://Scripts/mob.gd" id="1_lrtnc"]
-[ext_resource type="Texture2D" uid="uid://du8g2h7n03tuv" path="res://Assets/враг/фиолка атакует-Sheet.png" id="2_7q0sw"]
-[ext_resource type="Texture2D" uid="uid://bi1o5k0k48m75" path="res://Assets/враг/фиолка ходяка-Sheet.png" id="2_uv4lu"]
+[ext_resource type="Texture2D" uid="uid://du8g2h7n03tuv" path="res://Assets/characters/enemy/violet_attack.png" id="2_7q0sw"]
+[ext_resource type="Texture2D" uid="uid://bi1o5k0k48m75" path="res://Assets/characters/enemy/violet_run.png" id="2_uv4lu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gtkyj"]
 atlas = ExtResource("2_7q0sw")
