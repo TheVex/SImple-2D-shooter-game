@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://k6d6svxheyc8"]
+[gd_scene load_steps=25 format=3 uid="uid://k6d6svxheyc8"]
 
 [ext_resource type="PackedScene" uid="uid://ylltdbdq4x8" path="res://Prefabs/main_character.tscn" id="1_th0lk"]
 [ext_resource type="Script" uid="uid://bysup3nn3u3im" path="res://Scripts/mob_spawner.gd" id="2_pnjfi"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://w0s7dl82ngwk" path="res://Assets/фон/дом 1.png" id="6_hhsyl"]
 [ext_resource type="Texture2D" uid="uid://bl2d77l2g12px" path="res://Assets/фон/дом 2.png" id="7_0g7mb"]
 [ext_resource type="Texture2D" uid="uid://davf0xbiqb4lv" path="res://Assets/фон/дорога с тенью на которой стоит персонаж.png" id="8_exdbb"]
+[ext_resource type="Texture2D" uid="uid://cdnwnec4h6swe" path="res://Assets/фон/карта.png" id="13_fdnlq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ughxt"]
 font_size = 80
@@ -131,6 +132,32 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5)
 }
 
+[sub_resource type="Animation" id="Animation_c3ua5"]
+resource_name = "begin_animation"
+length = 4.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-100, -0.25, 0, 0.25, 0, 124.297, -0.25, 0, 0.25, 0, 200, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.03333, 4)
+}
+
 [sub_resource type="Animation" id="Animation_gjmga"]
 resource_name = "shop_exit"
 length = 0.9
@@ -155,54 +182,6 @@ tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1245, -0.25, 0, 0.25, 0, 1300, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
-}
-
-[sub_resource type="Animation" id="Animation_wf3iq"]
-resource_name = "zoom_out"
-length = 3.0
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(200, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1.56667)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:zoom:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(2, -0.25, 0, 0.633333, -1.02688, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 3)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:zoom:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(2, -0.25, 0, 0.666667, -1.04122, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 3)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../UI Layer/Right-up Node:position:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -80, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1.5)
 }
 
 [sub_resource type="Animation" id="Animation_l5mul"]
@@ -253,30 +232,52 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 1.5)
 }
 
-[sub_resource type="Animation" id="Animation_c3ua5"]
-resource_name = "begin_animation"
-length = 4.0
+[sub_resource type="Animation" id="Animation_wf3iq"]
+resource_name = "zoom_out"
+length = 3.0
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset:x")
+tracks/0/path = NodePath(".:offset:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 4)
+"points": PackedFloat32Array(200, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.56667)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:offset:y")
+tracks/1/path = NodePath(".:zoom:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-100, -0.25, 0, 0.25, 0, 124.297, -0.25, 0, 0.25, 0, 200, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.03333, 4)
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.633333, -1.02688, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:zoom:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.666667, -1.04122, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../UI Layer/Right-up Node:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -80, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.5)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f6qlg"]
@@ -461,5 +462,9 @@ enter_to_start = NodePath("../LabelLayer/EnterToStart")
 mob_counter = NodePath("../UI Layer/MobCounter")
 money_counter = NodePath("../UI Layer/Right-up Node/MoneyCounter")
 shop_button = NodePath("../UI Layer/Right-up Node/ShopButton")
+
+[node name="Карта" type="Sprite2D" parent="."]
+position = Vector2(-991, 348)
+texture = ExtResource("13_fdnlq")
 
 [connection signal="animation_finished" from="AnimationShop" to="GameManager" method="_on_animation_finished"]
