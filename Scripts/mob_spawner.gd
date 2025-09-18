@@ -48,7 +48,6 @@ func create_wave() -> void:
 	for i in range(mobs_amount):
 		# Wait from previous spawn
 		await get_tree().create_timer(randi_range(MIN_COOLDOWN, MAX_COOLDOWN)).timeout;
-		print("Спавню!")
 		if player_dead:
 			return;
 			
@@ -83,7 +82,6 @@ func on_mob_destroyed(money: int) -> void:
 	emit_signal("mob_destroyed", money);
 	if (mobs_counter == 0 and wave_ended):
 		emit_signal("wave_cleared");
-	print(mobs_counter)		
 	
 func _process(_delta: float) -> void:
 	# If pressed Enter we create new wave or restart the game depending on conditions

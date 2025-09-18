@@ -4,14 +4,7 @@ extends Node2D
 
 @export var mob_spawner: MobSpawner;
 @export var main_character: MainCharacter;
-@export var waveAnimation: AnimationPlayer;
-@export var wave_cleared: Label;
-@export var wave_number: Label;
-@export var you_died: Label;
-@export var enter_to_start: Label;
-@export var mob_counter: Counter;
-@export var money_counter: Counter;
-@export var shop_button: Node2D;
+@export var ui_manager: UIManager;
 
 
 # Amount of passed waves
@@ -23,60 +16,40 @@ var is_animation_finished = true;
 # Connecting all signals to the manager
 func _ready() -> void:
 	initialize_variables();
-	
 	connect_signals();
 	
 func initialize_variables() -> void:
 	pass;
 	
-	
+
 func connect_signals() -> void:
 	mob_spawner.wave_started.connect(on_wave_start);
 	mob_spawner.wave_cleared.connect(on_wave_end);
 	mob_spawner.mob_created.connect(on_mob_created);
 	mob_spawner.mob_destroyed.connect(on_mob_destroyed);
-	mob_spawner.mob_hit.connect(on_mob_hit);
 	main_character.is_dead.connect(on_player_death);
 	
 
-func on_mob_hit(mob: Mob):
-	if main_character:
-		main_character.shoot(mob);
-
+func on_mob_created() -> void:
+	ui_manager.on_mob_created(mob_spawner.mobs_counter)
+	
+func on_mob_destroyed(reward: int) -> void:
+	money += reward;
+	ui_manager.on_mob_destroyed(mob_spawner.mobs_counter, money)
 
 # When new wave started
 func on_wave_start() -> void:
-	print("Wave start!");
-	waveAnimation.play("wave_started")
-	main_character.can_shoot = true;
-	wave_cleared.hide();
-	you_died.hide();
-	enter_to_start.hide();
 	wave_count += 1;
-	wave_number.text = "WAVE " + str(wave_count);
+	ui_manager.on_wave_start(wave_count);
+	main_character.can_shoot_enforced = true;
 	
 # When wave ended
 func on_wave_end() -> void:
-	print("Wave end!");
-	waveAnimation.play("wave_ended");
-	wave_cleared.show();
-	enter_to_start.show();
-	main_character.can_shoot = false;
-
-
-func on_mob_created() -> void:
-	mob_counter.render(mob_spawner.mobs_counter);
-
-
-func on_mob_destroyed(reward: int) -> void:
-	mob_counter.render(mob_spawner.mobs_counter);
-	money += reward;
-	money_counter.render(money);
-
+	ui_manager.on_wave_end();
+	main_character.can_shoot_enforced = false;
 
 # When player died
 func on_player_death() -> void:
-	you_died.show();
-	enter_to_start.show();
-	main_character.can_shoot = false;
+	ui_manager.on_player_death();
+	main_character.can_shoot_enforced = false;
 	mob_spawner.player_dead = true;

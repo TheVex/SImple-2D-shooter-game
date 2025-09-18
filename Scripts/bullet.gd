@@ -1,21 +1,25 @@
 class_name Bullet extends Area2D
 
-var speed: int;
 var damage: int;
 var knockback: int;
-var direction = Vector2();
+var lifetime: int = 1;
 
-# Every physics frame it moves from character direction
-func _physics_process(delta: float) -> void:
-	position += direction * speed * delta;
-	rotation = direction.angle();
-	# Delete bullet if it is out of the screen
-	if !get_viewport().get_visible_rect().has_point(global_position):
-		queue_free();
+@onready var timer: Timer = $Timer
+
+func _ready() -> void:
+	# Configuring timer till end of bullet existence
+	timer.timeout.connect(func(): queue_free())
+	timer.wait_time = lifetime;
+	timer.start()
+
+func set_values(d: int, kb: int):
+	damage = d;
+	knockback = kb;
 
 # When collides with object
 func _on_body_entered(body: Node2D) -> void:
 	# If object is mob, deal damage to him and delete bullet
 	if body is Mob and !body.on_death:
-		body.change_health(damage, knockback);
+		body.apply_knockback(knockback)
+		body.change_health(damage, false);
 		queue_free();

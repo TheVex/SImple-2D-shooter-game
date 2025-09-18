@@ -7,10 +7,11 @@ class_name Weapon extends Node
 @export var reload_cooldown: int;
 @export var max_magazine_capacity: int;
 
-@onready var reload_timer: Timer = $ReloadTimer
-@onready var shoot_timer: Timer = $ShootTimer
+@export var reload_timer: Timer;
+@export var shoot_timer: Timer;
 
-var current_magazine_capacity;
+var current_magazine_capacity: int;
+var is_initialized: bool = false;
 
 signal weapon_reload;
 signal weapon_shoot;
@@ -18,36 +19,43 @@ signal weapon_reload_finished();
 signal weapon_shoot_finished();
 
 func _ready() -> void:
+	if is_initialized:
+		return
 	current_magazine_capacity = max_magazine_capacity;
 	
 	# Initializing timers
-	reload_timer.timeout.connect(func(): 	current_magazine_capacity = max_magazine_capacity, 
-											emit_signal("weapon_reload_finished"));
+	reload_timer.timeout.connect(_on_reload_timeout);
 	reload_timer.wait_time = reload_cooldown;
-	shoot_timer.timeout.connect(func(): emit_signal("weapon_shoot_finished"));
+	shoot_timer.timeout.connect(_on_shoot_timeout);
 	shoot_timer.wait_time = shoot_cooldown;
+	is_initialized = true;
+	
 
+func _on_reload_timeout() -> void:
+	current_magazine_capacity = max_magazine_capacity
+	weapon_reload_finished.emit()
+	reload_timer.stop()
 
-func _input(event: InputEvent) -> void:
-	if (event.is_action_just_pressed('shoot')):
-		print("SHOOTING")
-		shoot();
+func _on_shoot_timeout() -> void:
+	weapon_shoot_finished.emit()
+	shoot_timer.stop()
+	
 		
-
-func shoot() -> void:
+func fix_shot() -> void:
 	# if magazine is empty
 	if current_magazine_capacity == 0:
 		return;
 		
 	current_magazine_capacity -= 1;
-	print("CAPACITY: " + current_magazine_capacity)
+	print(current_magazine_capacity)
 	# Check magazine condition
 	if current_magazine_capacity == 0:
+		reload_timer.start();
 		emit_signal("weapon_reload");
-		reload_timer.start()
 	elif current_magazine_capacity > 0:
-		emit_signal("weapon_shoot")
-		shoot_timer.start()
+		shoot_timer.start();
+		emit_signal("weapon_shoot");
+		
 	else:
 		print("Weapon error: " + weapon_name + " has negative magazine capacity.")
 

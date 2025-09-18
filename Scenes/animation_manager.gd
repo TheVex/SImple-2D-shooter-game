@@ -1,0 +1,1 @@
+class_name AnimationManager extends Node2D

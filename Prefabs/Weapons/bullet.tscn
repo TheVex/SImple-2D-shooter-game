@@ -4,25 +4,21 @@
 [ext_resource type="Script" uid="uid://c6f18snkwm3da" path="res://Scripts/bullet.gd" id="1_q1bkd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8f8c"]
-size = Vector2(20, 50)
+size = Vector2(123.09, 124.572)
 
 [node name="Bullet" type="Area2D"]
 scale = Vector2(0.192661, 0.227475)
 script = ExtResource("1_q1bkd")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.5708
-scale = Vector2(0.164063, 0.414063)
-texture = ExtResource("1_j11b1")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(-30, 5.96046e-08)
-rotation = 1.5708
-scale = Vector2(0.0591784, 0.285958)
-texture = ExtResource("1_j11b1")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.2375e-06, 2.09622e-06)
 rotation = 1.5708
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_h8f8c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_j11b1")
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
