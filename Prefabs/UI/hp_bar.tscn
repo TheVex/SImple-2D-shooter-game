@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0uqqgsl1ojis"]
+
+[ext_resource type="Texture2D" uid="uid://dng32smfcxh2q" path="res://Assets/menu/hp_bar.png" id="1_vbh8p"]
+[ext_resource type="Script" uid="uid://cfhp027yb5t3a" path="res://Prefabs/UI/hp_bar.gd" id="1_vh2gl"]
+[ext_resource type="Texture2D" uid="uid://bgmkob24odxkw" path="res://Assets/menu/half-hp.png" id="2_vh2gl"]
+[ext_resource type="Texture2D" uid="uid://cxoen412d00yy" path="res://Assets/menu/no-hp.png" id="3_tpqpv"]
+
+[node name="HPBar" type="Node2D" node_paths=PackedStringArray("hp_1", "hp_0", "hp_3", "hp_2", "hp_5", "hp_4")]
+script = ExtResource("1_vh2gl")
+hp_1 = NodePath("HP_1")
+hp_0 = NodePath("HP_0")
+hp_3 = NodePath("HP_3")
+hp_2 = NodePath("HP_2")
+hp_5 = NodePath("HP_5")
+hp_4 = NodePath("HP_4")
+metadata/_custom_type_script = "uid://cfhp027yb5t3a"
+
+[node name="Bar" type="Sprite2D" parent="."]
+texture = ExtResource("1_vbh8p")
+
+[node name="HP_1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-18, -2)
+texture = ExtResource("2_vh2gl")
+
+[node name="HP_0" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-18, -2)
+texture = ExtResource("3_tpqpv")
+
+[node name="HP_3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -2)
+texture = ExtResource("2_vh2gl")
+
+[node name="HP_2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -2)
+texture = ExtResource("3_tpqpv")
+
+[node name="HP_5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(18, -2)
+texture = ExtResource("2_vh2gl")
+
+[node name="HP_4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(18, -2)
+texture = ExtResource("3_tpqpv")

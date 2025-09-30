@@ -1,14 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://k6d6svxheyc8"]
+[gd_scene load_steps=21 format=3 uid="uid://k6d6svxheyc8"]
 
 [ext_resource type="PackedScene" uid="uid://ylltdbdq4x8" path="res://Prefabs/main_character.tscn" id="1_th0lk"]
 [ext_resource type="PackedScene" uid="uid://blsu6oxcemrhk" path="res://Prefabs/UI/backpack.tscn" id="1_ynf5e"]
 [ext_resource type="Script" uid="uid://bysup3nn3u3im" path="res://Scripts/mob_spawner.gd" id="2_pnjfi"]
 [ext_resource type="PackedScene" uid="uid://c5f0ym3ippdue" path="res://Prefabs/UI/mob_counter.tscn" id="2_smj3l"]
 [ext_resource type="PackedScene" uid="uid://cm58jf7vsuraj" path="res://Prefabs/UI/money_counter.tscn" id="3_a06bj"]
+[ext_resource type="PackedScene" uid="uid://cv8ix4ufbsfak" path="res://Prefabs/cursor_manager.tscn" id="3_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://csvana673prer" path="res://Prefabs/Mobs/zombie.tscn" id="3_hj1yg"]
 [ext_resource type="Script" uid="uid://d3cojhimux86n" path="res://Scripts/game_manager.gd" id="4_2cbo6"]
-[ext_resource type="Script" uid="uid://dpfffuc65bnri" path="res://Scenes/ui_manager.gd" id="5_344ge"]
+[ext_resource type="Script" uid="uid://dpfffuc65bnri" path="res://Scripts/ui_manager.gd" id="5_344ge"]
 [ext_resource type="Texture2D" uid="uid://bxsxojjnv81hd" path="res://Assets/background/location1.png" id="6_6bp64"]
+[ext_resource type="PackedScene" uid="uid://d0uqqgsl1ojis" path="res://Prefabs/UI/hp_bar.tscn" id="7_hptm8"]
 
 [sub_resource type="Animation" id="Animation_1bs8j"]
 length = 0.001
@@ -227,15 +229,20 @@ mob_spawner = NodePath("../MobSpawner")
 main_character = NodePath("../MainCharacter")
 ui_manager = NodePath("../UIManager")
 
-[node name="UIManager" type="Node2D" parent="." node_paths=PackedStringArray("mob_counter", "money_counter", "wave_cleared", "wave_number", "you_died", "enter_to_start", "wave_animation")]
+[node name="CursorManager" parent="." instance=ExtResource("3_d1ilt")]
+
+[node name="UIManager" type="Node2D" parent="." node_paths=PackedStringArray("mob_counter", "money_counter", "hp_bar", "wave_cleared", "wave_number", "you_died", "enter_to_start", "ammo", "reload", "wave_animation")]
 position = Vector2(0, -17)
 script = ExtResource("5_344ge")
 mob_counter = NodePath("../UI Layer/Right-up Node/MobCounter")
 money_counter = NodePath("../UI Layer/Right-up Node/MoneyCounter")
+hp_bar = NodePath("../UI Layer/HPBar")
 wave_cleared = NodePath("../LabelLayer/WaveCleared")
 wave_number = NodePath("../LabelLayer/WaveNumber")
 you_died = NodePath("../LabelLayer/YouDied")
 enter_to_start = NodePath("../LabelLayer/EnterToStart")
+ammo = NodePath("../UI Layer/Ammo")
+reload = NodePath("../UI Layer/Reload")
 wave_animation = NodePath("../AnimationWave")
 metadata/_custom_type_script = "uid://dpfffuc65bnri"
 
@@ -347,8 +354,12 @@ horizontal_alignment = 1
 
 [node name="UI Layer" type="CanvasLayer" parent="."]
 
+[node name="HPBar" parent="UI Layer" instance=ExtResource("7_hptm8")]
+position = Vector2(109, 57)
+scale = Vector2(3, 3)
+
 [node name="Backpack" parent="UI Layer" instance=ExtResource("1_ynf5e")]
-position = Vector2(64, 62)
+position = Vector2(72, 584.99994)
 scale = Vector2(5, 5)
 
 [node name="Right-up Node" type="Node2D" parent="UI Layer"]
@@ -361,3 +372,24 @@ scale = Vector2(5, 5)
 [node name="MoneyCounter" parent="UI Layer/Right-up Node" instance=ExtResource("3_a06bj")]
 position = Vector2(0, 0)
 scale = Vector2(5, 5)
+
+[node name="Ammo" type="Label" parent="UI Layer"]
+offset_left = 1163.0
+offset_top = 588.0
+offset_right = 1279.0
+offset_bottom = 676.0
+theme_override_font_sizes/font_size = 64
+text = "8/8"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Reload" type="Label" parent="UI Layer"]
+visible = false
+offset_left = 1124.0
+offset_top = 655.0
+offset_right = 1283.0
+offset_bottom = 725.0
+theme_override_font_sizes/font_size = 48
+text = "Reload"
+horizontal_alignment = 2
+vertical_alignment = 1

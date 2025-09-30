@@ -55,7 +55,6 @@ func fix_shot() -> void:
 	elif current_magazine_capacity > 0:
 		shoot_timer.start();
 		emit_signal("weapon_shoot");
-		
 	else:
 		print("Weapon error: " + weapon_name + " has negative magazine capacity.")
 
@@ -63,6 +62,11 @@ func fix_shot() -> void:
 func get_knockback() -> float:
 	return bullet_knockback;
 
-
 func get_damage() -> float:
 	return damage;
+
+func get_ammo() -> int:
+	return current_magazine_capacity;
+
+func get_max_capacity() -> int:
+	return max_magazine_capacity;

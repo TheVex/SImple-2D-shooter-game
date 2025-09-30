@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv8ix4ufbsfak"]
+
+[ext_resource type="Script" uid="uid://durdw0iiaqaij" path="res://Scripts/cursor_manager.gd" id="1_54oeo"]
+[ext_resource type="Texture2D" uid="uid://clvm4ic03ea6v" path="res://Assets/mouse/прицел.png" id="2_iwtbt"]
+
+[node name="CursorManager" type="Node2D"]
+script = ExtResource("1_54oeo")
+cursor_shoot = ExtResource("2_iwtbt")
+size = 32

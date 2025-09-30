@@ -8,10 +8,10 @@
 script = ExtResource("1_obyf4")
 
 [node name="BackpackClosed" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_tgyrg")
 
 [node name="BackpackOpened" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(16, 5)
 rotation = 3.14159
 texture = ExtResource("3_dq6ly")
